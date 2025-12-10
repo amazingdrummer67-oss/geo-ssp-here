@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo-SSP-hère | La solution QGIS pour les Sites et Sols Pollués</title>
+    <style>
+        :root {
+            /* Palette inspirée du logo V10 */
+            --primary: #2c3e50;      /* Bleu Nuit */
+            --secondary: #d35400;    /* Orange Terre Cuite */
+            --accent: #f1c40f;       /* Jaune/Or */
+            --success: #2ecc71;      /* Vert Graphique */
+            --light: #ecf0f1;
+            --text: #333;
+            --gradient: linear-gradient(135deg, #1c2833 0%, #34495e 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        
+        body { color: var(--text); line-height: 1.6; background-color: #f9f9f9; }
+
+        /* Navigation */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 5%; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+        .logo span { color: var(--secondary); }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--secondary); }
+        .btn-download {
+            background: var(--secondary); color: white; padding: 10px 20px; border-radius: 50px;
+            text-decoration: none; font-weight: bold; transition: 0.3s;
+        }
+        .btn-download:hover { background: #e67e22; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(211, 84, 0, 0.4); }
+
+        /* Hero Section */
+        header {
+            background: var(--gradient); color: white; padding: 100px 5% 150px;
+            text-align: center; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+        h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; font-weight: 800; }
+        .highlight { color: var(--accent); }
+        
+        .subtitle { 
+            font-size: 1.25rem; opacity: 0.95; max-width: 800px; margin: 0 auto 40px; 
+            font-weight: 300; line-height: 1.6;
+        }
+        
+        /* Features Grid */
+        .features { padding: 50px 10%; margin-top: -80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card {
+            background: white; padding: 35px; border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: 0.3s;
+            border-top: 5px solid var(--secondary);
+            position: relative; overflow: hidden;
+        }
+        .card:hover { transform: translateY(-10px); }
+        .card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.4rem; display: flex; align-items: center; gap: 10px; }
+        .card-icon { font-size: 2rem; background: var(--light); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--secondary); margin-bottom: 20px; }
+
+        /* Demo Section */
+        .demo-section { padding: 80px 10%; background: white; text-align: center; }
+        .demo-container { 
+            background: #f4f6f7; width: 100%; max-width: 1000px; height: 500px; 
+            margin: 40px auto 0; border-radius: 15px; border: 1px solid #ddd;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        .fake-ui { color: #aaa; font-style: italic; }
+
+        /* AI Section */
+        .ai-section {
+            background: #1a252f; color: white; padding: 100px 10%;
+            display: flex; align-items: center; gap: 60px; flex-wrap: wrap;
+            position: relative; overflow: hidden;
+        }
+        /* Cercle décoratif */
+        .ai-section::before {
+            content: ''; position: absolute; top: -100px; right: -100px;
+            width: 400px; height: 400px; background: rgba(255,255,255,0.03);
+            border-radius: 50%; z-index: 0;
+        }
+
+        .ai-content { flex: 1; min-width: 350px; z-index: 1; }
+        .ai-visual { 
+            flex: 1; text-align: center; font-size: 8rem; 
+            /* Animation de 3 secondes */
+            animation: float 3s ease-in-out infinite; 
+            text-shadow: 0 0 50px rgba(46, 204, 113, 0.3);
+        }
+        
+        /* C'EST ICI QUE ÇA SE PASSE POUR LA FLOTTAISON */
+        @keyframes float { 
+            0% { transform: translateY(0px); } 
+            50% { transform: translateY(-40px); } /* J'ai passé de -20px à -40px pour plus d'amplitude */
+            100% { transform: translateY(0px); } 
+        }
+
+        /* Footer */
+        footer { background: var(--primary); color: white; text-align: center; padding: 60px 20px; margin-top: 0; }
+        .footer-logo { font-size: 2rem; font-weight: bold; margin-bottom: 20px; display: inline-block;}
+        .footer-logo span { color: var(--secondary); }
+        
+        /* SVG CSS */
+        .svg-icon { width: 35px; height: 35px; vertical-align: middle; }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <svg class="svg-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="256" cy="256" r="240" fill="#2c3e50"/>
+                <path d="M256,220 L256,400" stroke="#f1c40f" stroke-width="20" stroke-linecap="round"/>
+                <circle cx="256" cy="220" r="35" fill="#f1c40f"/>
+                <polyline points="90,280 160,220 230,260 300,160 370,200 420,120" fill="none" stroke="#2ecc71" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Geo-<span>SSP</span>-hère
+        </div>
+        <div class="nav-links">
+            <a href="#features">Fonctionnalités</a>
+            <a href="#ai">Module IA</a>
+            <a href="#download" class="btn-download">Télécharger v1.0</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Les Sites et Sols Pollués 4.0<br>dans QGIS</h1>
+        <p class="subtitle">
+            Connectez directement vos fichiers d'analyses (Excel) à vos entités géographiques :<br>
+            <strong>Gaz du sol, Eaux souterraines & superficielles, Sols, Fonds et Bords de fouilles.</strong><br>
+            Automatisez la comparaison aux seuils réglementaires ou à des seuils personnalisés et générez vos rapports en quelques clics.
+        </p>
+        <div style="display: flex; gap: 15px; justify-content: center;">
+            <a href="#download" class="btn-download" style="font-size: 1.1rem; padding: 15px 40px;">Installer le Plugin 🚀</a>
+            <a href="#features" style="padding: 15px 40px; color: white; border: 2px solid rgba(255,255,255,0.3); border-radius: 50px; text-decoration: none; font-weight: bold; transition:0.3s">En savoir plus</a>
+        </div>
+    </header>
+
+    <section class="features" id="features">
+        
+        <div class="card">
+            <div class="card-icon">🔗</div>
+            <h3>Connexion Multi-Matrices</h3>
+            <p>Fini les jointures manuelles. Le plugin associe intelligemment vos tableaux d'analyses (échantillons en lignes) à vos objets QGIS : Sondages, Piézomètres, Emprises de fouilles.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">📊</div>
+            <h3>Tableaux & Seuils</h3>
+            <p>Générez automatiquement des tableaux de synthèse comparant vos concentrations aux seuils réglementaires définis (ISDI, ISDND, Arrêtés préfectoraux) ou personnalisés. <br><strong>Affichage dynamique du tableau de synthèse sur vos points de prélèvements.</strong></p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">📈</div>
+            <h3>Graphiques & Stats</h3>
+            <p>Visualisez l'évolution temporelle des polluants. Calcul automatique des statistiques clés (Moyenne, Médiane, Q95, Écart-Type) et détection de tendances.</p>
+        </div>
+    </section>
+
+    <section class="ai-section" id="ai">
+        <div class="ai-content">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">🤖 L'IA locale pour vos diagnostics</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; color: #ecf0f1;">
+                <strong>Geo-SSP-hère</strong> intègre un module d'intelligence artificielle (via Ollama) qui analyse vos données statistiques.
+            </p>
+            
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; border-left: 4px solid var(--success);">
+                <p style="font-style: italic; font-size: 0.95rem;">
+                    "L'analyse montre une tendance globale à la baisse sur le site, excepté pour le <strong>PZ-04</strong> qui présente un pic de Benzène le 12/05/2023..."
+                </p>
+                <div style="margin-top: 10px; font-size: 0.8rem; opacity: 0.7;">— Exemple d'interprétation générée par le plugin</div>
+            </div>
+
+            <ul style="list-style: none; margin-top: 30px;">
+                <li style="margin-bottom: 10px;">🔒 <strong>100% Confidentiel :</strong> Vos données ne quittent pas votre PC.</li>
+                <li style="margin-bottom: 10px;">👷 <strong>Expert :</strong> Prompt ingénieur SSP intégré.</li>
+            </ul>
+        </div>
+        <div class="ai-visual">🧠</div>
+    </section>
+
+    <section class="demo-section">
+        <h2>Une Interface Métier</h2>
+        <p>Pensé pour optimiser le flux de travail des ingénieurs SSP.</p>
+        
+        <div class="demo-container">
+            <div class="fake-ui">
+                <p>[ Insérez ici une capture d'écran de l'onglet Graphique ou Atlas du plugin ]</p>
+                <p style="font-size: 3rem;">🖥️</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="download">
+        <div class="footer-logo">Geo-<span>SSP</span>-hère</div>
+        <p style="margin-bottom: 30px; opacity: 0.8;">La boîte à outils indispensable pour vos études environnementales.</p>
+        
+        <p style="margin: 20px 0;">Compatible QGIS 3.x • Windows / Mac / Linux</p>
+        <a href="#" class="btn-download">Télécharger le ZIP (v1.0)</a>
+        
+        <p style="margin-top: 60px; font-size: 0.8rem; opacity: 0.5;">
+            &copy; 2024 Geo-SSP-hère. Développé pour les experts du sous-sol.
+        </p>
+    </footer>
+
+</body>
+</html>
