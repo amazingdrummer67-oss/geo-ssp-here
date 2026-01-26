@@ -460,6 +460,100 @@
             opacity: 0.9;
             color: #d4ac0d;
         }
+
+        /* Carousel Styling */
+        .demo-container {
+            overflow: hidden;
+            position: relative;
+            padding: 0;
+            background: #000;
+            /* Dark background for better image contrast */
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+            width: 100%;
+            /* Force width to match container */
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            /* Explicitly take full width */
+            min-width: 0;
+            /* Override any implicit min-width */
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Navigation Buttons */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+            color: var(--primary);
+        }
+
+        .prev-btn {
+            left: 20px;
+        }
+
+        .next-btn {
+            right: 20px;
+        }
+
+        /* Indicators */
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.3);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
     </style>
 </head>
 
@@ -559,9 +653,43 @@
         <p>Pensé pour optimiser le flux de travail des ingénieurs SSP.</p>
 
         <div class="demo-container">
-            <div class="fake-ui">
-                <p>[ Insérez ici une capture d'écran de l'onglet Graphique ou Atlas du plugin ]</p>
-                <p style="font-size: 3rem;">🖥️</p>
+            <button class="carousel-btn prev-btn">❮</button>
+            <button class="carousel-btn next-btn">❯</button>
+
+            <div class="carousel-track">
+                <!-- 1. Accueil -->
+                <div class="carousel-slide">
+                    <img src="images/accueil.png" alt="Accueil du Plugin">
+                </div>
+                <!-- 2. Mailles & Fouilles -->
+                <div class="carousel-slide">
+                    <img src="images/mailles_fouilles.png" alt="Gestion des Mailles et Fouilles">
+                </div>
+                <!-- 3. Tableaux Dynamiques -->
+                <div class="carousel-slide">
+                    <img src="images/tableaux_dynamiques.png" alt="Tableaux de Synthèse">
+                </div>
+                <!-- 4. Partie Graphique -->
+                <div class="carousel-slide">
+                    <img src="images/partie_graphiques.png" alt="Interface Graphique">
+                </div>
+                <!-- 5. Exemples de Graphiques -->
+                <div class="carousel-slide">
+                    <img src="images/exemples_graphiques.png" alt="Exemples de Rendus">
+                </div>
+                <!-- 6. Génération des Radars -->
+                <div class="carousel-slide">
+                    <img src="images/générations_radars.png" alt="Radars de Pollution">
+                </div>
+            </div>
+
+            <div class="carousel-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
             </div>
         </div>
     </section>
@@ -571,44 +699,43 @@
         <h2 class="section-title">🎓 Prise en main & Tutoriels</h2>
 
         <div class="tuto-grid">
-            <!-- Tuto 1 -->
+            <!-- Tuto 1 : Préparation -->
             <div class="tuto-card">
-                <div class="video-container" data-id="HPlVpVYLtLc"
-                    style="background-image: url('https://img.youtube.com/vi/HPlVpVYLtLc/hqdefault.jpg');">
-                    <div class="video-play-btn">▶</div>
+                <div class="video-container" style="height: auto; padding-bottom: 0; background: black;">
+                    <video controls style="width: 100%; display: block;">
+                        <source src="tutoriels/tuto_prepa_amont_terrain.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture de vidéos.
+                    </video>
                 </div>
                 <div class="tuto-content">
                     <span class="tuto-tag tag-start">DÉBUTANT</span>
-                    <h3>Installation & Premier Lancement</h3>
-                    <p>Découvrez comment installer le plugin ZIP et configurer vos premiers fichiers de données.</p>
+                    <h3>Préparation de terrain</h3>
+                    <p>Apprenez à préparer vos fichiers et votre projet avant d'aller sur le terrain.</p>
                 </div>
             </div>
 
-            <!-- Tuto 2 -->
+            <!-- Tuto 2 : Acquisition -->
             <div class="tuto-card">
-                <div class="video-container" data-id="TBLSGvd26DU"
-                    style="background-image: url('https://img.youtube.com/vi/TBLSGvd26DU/hqdefault.jpg');">
-                    <div class="video-play-btn">▶</div>
+                <div class="video-container" style="height: auto; padding-bottom: 0; background: black;">
+                    <video controls style="width: 100%; display: block;">
+                        <source src="tutoriels/Acquisition_SOLS.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture de vidéos.
+                    </video>
                 </div>
                 <div class="tuto-content">
-                    <span class="tuto-tag tag-adv">AVANCÉ</span>
-                    <h3>Créer vos propres seuils</h3>
-                    <p>Apprenez à personnaliser les seuils de référence pour vos analyses spécifiques.</p>
+                    <span class="tuto-tag tag-adv">TERRAIN</span>
+                    <h3>Acquisition Sols</h3>
+                    <p>Démonstration complète de la saisie des données sols directement sur site.</p>
                 </div>
             </div>
+        </div>
 
-            <!-- Tuto 3 -->
-            <div class="tuto-card">
-                <div class="video-container" data-id="SSWvhEJ75IE"
-                    style="background-image: url('https://img.youtube.com/vi/SSWvhEJ75IE/hqdefault.jpg');">
-                    <div class="video-play-btn">▶</div>
-                </div>
-                <div class="tuto-content">
-                    <span class="tuto-tag tag-start">BASIQUE</span>
-                    <h3>Générer un rapport PDF</h3>
-                    <p>Exportez vos cartes et tableaux de synthèse directement au format PDF.</p>
-                </div>
-            </div>
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="notice/Notice_QFIELD_SSP.pdf" target="_blank" class="btn-download"
+                style="padding: 15px 30px; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(211, 84, 0, 0.3);">
+                📖 Lire la Notice (PDF)
+            </a>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #7f8c8d;">(Format PDF • 3.5 Mo)</p>
         </div>
     </section>
 
@@ -719,18 +846,91 @@
                     btn.innerText = originalText;
                 });
         });
-
-        // Script pour charger la vidéo uniquement au clic
-        document.querySelectorAll('.video-container').forEach(function (container) {
-            container.addEventListener('click', function () {
-                var videoId = this.getAttribute('data-id');
-                if (videoId) {
-                    this.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-                }
-            });
-        });
     </script>
 
+    <!-- Script du Caroussel -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const track = document.querySelector('.carousel-track');
+            const slides = Array.from(track.children);
+            const nextBtn = document.querySelector('.next-btn');
+            const prevBtn = document.querySelector('.prev-btn');
+            const dots = Array.from(document.querySelectorAll('.dot'));
+            const container = document.querySelector('.demo-container');
+
+            let currentIndex = 0;
+            let autoPlayInterval;
+
+            // Fonction pour changer de slide
+            function updateCarousel(index) {
+                // 1. Déplacer la bande (track) avec une translation
+                track.style.transform = 'translateX(-' + (index * 100) + '%)';
+
+                // 2. Mettre à jour les points actifs
+                dots.forEach(d => d.classList.remove('active'));
+                dots[index].classList.add('active');
+
+                currentIndex = index;
+            }
+
+            // Aller au suivant
+            function nextSlide() {
+                let newIndex = currentIndex + 1;
+                if (newIndex >= slides.length) {
+                    newIndex = 0; // Retour au début
+                }
+                updateCarousel(newIndex);
+            }
+
+            // Aller au précédent
+            function prevSlide() {
+                let newIndex = currentIndex - 1;
+                if (newIndex < 0) {
+                    newIndex = slides.length - 1; // Aller à la fin
+                }
+                updateCarousel(newIndex);
+            }
+
+            // Écouteurs d'événements (Clicks)
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetTimer(); // On relance le timer quand l'utilisateur interagit
+            });
+
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetTimer();
+            });
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    updateCarousel(index);
+                    resetTimer();
+                });
+            });
+
+            // Gestion de l'Autoplay (Défilement automatique)
+            function startTimer() {
+                autoPlayInterval = setInterval(nextSlide, 8000); // 8 secondes (demandé par l'utilisateur)
+            }
+
+            function stopTimer() {
+                clearInterval(autoPlayInterval);
+            }
+
+            function resetTimer() {
+                stopTimer();
+                startTimer();
+            }
+
+            // Pause quand la souris passe dessus (pour laisser le temps de lire)
+            container.addEventListener('mouseenter', stopTimer);
+            container.addEventListener('mouseleave', startTimer);
+
+            // Démarrage initial
+            startTimer();
+        });
+    </script>
     <footer id="download">
         <div class="footer-logo">Geo-<span>SSP</span>-hère</div>
         <p style="margin-bottom: 30px; opacity: 0.8;">La boîte à outils indispensable pour vos études environnementales.
