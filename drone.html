@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestations Drone | Dromatique</title>
+    <style>
+        :root {
+            --primary: #1e3a8a; 
+            --secondary: #2563eb; 
+            --light: #f3f4f6;
+            --text: #1f2937;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { color: var(--text); background-color: #f9f9f9; }
+
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo img { height: 40px; }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--secondary); }
+        .btn-contact { background: var(--secondary); color: white !important; padding: 10px 20px; border-radius: 50px; font-weight: bold; }
+
+        header { background: var(--primary); color: white; padding: 80px 5%; text-align: center; }
+        header h1 { font-size: 3rem; margin-bottom: 15px; }
+        
+        /* Content Section */
+        .content-section { padding: 60px 10%; max-width: 1200px; margin: 0 auto; }
+        
+        .drone-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px;}
+        
+        .drone-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            text-align: center;
+            border-top: 4px solid var(--secondary);
+            transition: 0.3s;
+        }
+        .drone-card:hover { transform: translateY(-5px); }
+        .drone-icon { font-size: 3.5rem; margin-bottom: 20px; }
+        .drone-card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.4rem;}
+        .drone-card p { color: #666; font-size: 1rem;}
+
+        .intro-text { text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto 50px; line-height: 1.6;}
+
+        footer { background: var(--primary); color: white; text-align: center; padding: 40px 20px; margin-top: 50px;}
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="images/Logo-Dromatique.png" alt="Logo Dromatique">
+            Dromatique
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="equipe.html">L'Équipe</a>
+            <a href="plugins.html">Nos Développements</a>
+            <a href="drone.html" class="active">Prestations Drone</a>
+            <a href="geo-ssp-here.html">Geo-SSP-hère</a>
+            <a href="index.html#contact" class="btn-contact">Contactez-nous</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Prestations Drone & Acquisition</h1>
+        <p>Prenez de la hauteur sur vos chantiers avec nos solutions d'acquisition aérienne certifiées.</p>
+    </header>
+
+    <section class="content-section">
+        
+        <p class="intro-text">
+            En tant que télépilote agréé, nous couvrons toutes les étapes : de la préparation du vol au traitement numérique de très haute précision (RTK). Nous intégrons directement ces données dans vos environnements SIG sous forme de maquettes ou de fonds de plan.
+        </p>
+
+        <div class="drone-grid">
+            <div class="drone-card">
+                <div class="drone-icon">📸</div>
+                <h3>Photogrammétrie 2D / 3D</h3>
+                <p>Génération d'orthophotographies haute résolution, Modèles Numériques de Terrain (MNT) et de Surface (MNS), nuages de points classifiés.</p>
+            </div>
+
+            <div class="drone-card">
+                <div class="drone-icon">📏</div>
+                <h3>Calculs Topographiques</h3>
+                <p>Mesure ultra-précise des surfaces et volumes : levés topographiques, évaluation des stocks, calculs de cubatures des terres de déblais.</p>
+            </div>
+
+            <div class="drone-card">
+                <div class="drone-icon">🏗️</div>
+                <h3>Suivi de Chantier & Vidéo</h3>
+                <p>Prises de vues régulières par drone pour valider l'avancement de vos travaux et inspections techniques en hauteur (infrastructures, toitures, carrière).</p>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Dromatique. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dromatique | Cartographie, Drone & Développement SIG</title>
+    <style>
+        :root {
+            /* Couleurs Dromatique (à adapter selon le logo réel) */
+            --primary: #1e3a8a;
+            /* Bleu profond */
+            --secondary: #2563eb;
+            /* Bleu clair */
+            --accent: #f59e0b;
+            /* Orange/Ambre */
+            --light: #f3f4f6;
+            --text: #1f2937;
+            --gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            /* Ajuster la taille du logo */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--secondary);
+        }
+
+        .btn-contact {
+            background: var(--secondary);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+        }
+
+        .btn-contact:hover {
+            background: var(--primary);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 120px 5% 150px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Services Grid */
+        .services {
+            padding: 50px 10%;
+            margin-top: -80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+            border-top: 5px solid var(--secondary);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            margin-bottom: 25px;
+            color: #666;
+            flex-grow: 1;
+        }
+
+        .btn-service {
+            display: inline-block;
+            padding: 10px 25px;
+            background: var(--light);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-service:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        /* Section Geo-SSP-Hère */
+        .product-section {
+            padding: 80px 10%;
+            background: white;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .product-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .product-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .product-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .product-visual {
+            flex: 1;
+            min-width: 300px;
+            background: #fdfdfd;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .product-visual img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="images/Logo-Dromatique.png" alt="Logo Dromatique">
+            Dromatique
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Accueil</a>
+            <a href="equipe.html">L'Équipe</a>
+            <a href="plugins.html">Nos Développements</a>
+            <a href="drone.html">Prestations Drone</a>
+            <a href="geo-ssp-here.html">Geo-SSP-hère</a>
+            <a href="#contact" class="btn-contact">Contactez-nous</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>L'Expertise Spatiale à votre Service</h1>
+        <p class="subtitle">
+            Dromatique vous accompagne dans la numérisation de vos projets à travers trois pôles d'expertise : la
+            cartographie avancée, les services d'acquisition par drone et le développement SIG sur mesure.
+        </p>
+    </header>
+
+    <section class="services">
+        <div class="card">
+            <div class="card-icon">💻</div>
+            <h3>Développement SIG</h3>
+            <p>Création de plugins QGIS sur mesure, automatisation de tâches et conception d'outils d'aide à la décision
+                adaptés à vos besoins métiers.</p>
+            <a href="plugins.html" class="btn-service">Découvrir nos solutions</a>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🚁</div>
+            <h3>Prestations Drone</h3>
+            <p>Acquisition aérienne haute résolution : photogrammétrie, vidéos techniques, modèles numériques de terrain
+                et calculs de volumes.</p>
+            <a href="drone.html" class="btn-service">Nos services dronés</a>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🗺️</div>
+            <h3>Cartographie & Data</h3>
+            <p>Traitement de données spatiales, gestion de bases de données géographiques complexes et réalisation
+                cartographique de pointe.</p>
+            <a href="equipe.html" class="btn-service">Notre expertise</a>
+        </div>
+    </section>
+
+    <section class="product-section">
+        <div class="product-content">
+            <h2>Notre Produit Phare : <br><span style="color: #d35400;">Geo-SSP-hère</span></h2>
+            <p>Découvrez notre solution complète intégrée à QGIS pour les experts des Sites et Sols Pollués. Connectez
+                vos données d'analyses, générez des tableaux réglementaires et créez des modèles 3D géologiques en
+                quelques clics.</p>
+            <a href="geo-ssp-here.html"
+                style="background: #d35400; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block;">Explorer
+                Geo-SSP-hère</a>
+        </div>
+        <div class="product-visual">
+            <img src="images/module_3D_pollution.png" alt="Aperçu Geo-SSP-Hère">
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-logo">Dromatique</div>
+        <p>Expertise Cartographique, Drone et SIG</p>
+        <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.7;">
+            &copy; 2024 Dromatique. Tous droits réservés.
+        </p>
+    </footer>
+
+</body>
+
+</html>

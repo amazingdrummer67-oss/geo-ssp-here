@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Équipe | Dromatique</title>
+    <style>
+        :root {
+            --primary: #1e3a8a; 
+            --secondary: #2563eb; 
+            --light: #f3f4f6;
+            --text: #1f2937;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { color: var(--text); background-color: #f9f9f9; }
+
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo img { height: 40px; }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--secondary); }
+        .btn-contact { background: var(--secondary); color: white !important; padding: 10px 20px; border-radius: 50px; font-weight: bold; }
+
+        header { background: var(--primary); color: white; padding: 80px 5%; text-align: center; }
+        header h1 { font-size: 3rem; margin-bottom: 15px; }
+
+        /* Team Section */
+        .team-section { padding: 80px 10%; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px; }
+        
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            text-align: center;
+        }
+        .team-member:hover { transform: translateY(-10px); }
+        
+        .member-photo {
+            width: 100%;
+            height: 250px;
+            background: #e2e8f0; /* Remplacer par img plus tard */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #94a3b8;
+        }
+
+        .member-info { padding: 30px; }
+        .member-info h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 5px; }
+        .member-role { color: var(--secondary); font-weight: bold; margin-bottom: 15px; font-size: 1.1rem; }
+        .member-desc { color: #666; font-size: 0.95rem; margin-bottom: 20px; }
+        
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+        .tag { background: var(--light); color: var(--primary); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+
+        footer { background: var(--primary); color: white; text-align: center; padding: 40px 20px; margin-top: 50px;}
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="images/Logo-Dromatique.png" alt="Logo Dromatique">
+            Dromatique
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="equipe.html" class="active">L'Équipe</a>
+            <a href="plugins.html">Nos Développements</a>
+            <a href="drone.html">Prestations Drone</a>
+            <a href="geo-ssp-here.html">Geo-SSP-hère</a>
+            <a href="index.html#contact" class="btn-contact">Contactez-nous</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>L'Équipe Dromatique</h1>
+        <p>Trois experts associés, une complémentarité au service de vos projets.</p>
+    </header>
+
+    <section class="team-section">
+        <div class="team-grid">
+            
+            <!-- Enzo LORNE -->
+            <div class="team-member">
+                <div class="member-photo">📷</div>
+                <div class="member-info">
+                    <h3>Enzo LORNE</h3>
+                    <div class="member-role">Gérant, Géologue & Géomaticien</div>
+                    <p class="member-desc">Expert des milieux naturels et cartographie, Enzo supervise le développement des outils métiers et l'acquisition terrain.</p>
+                    <div class="tags">
+                        <span class="tag">Télépilote Drone</span>
+                        <span class="tag">Photogrammétrie</span>
+                        <span class="tag">Dev Plugin</span>
+                        <span class="tag">Maquette 3D</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maxence SALCEDO -->
+            <div class="team-member">
+                <div class="member-photo">📷</div>
+                <div class="member-info">
+                    <h3>Maxence SALCEDO</h3>
+                    <div class="member-role">Géomaticien & Télédétection</div>
+                    <p class="member-desc">Spécialiste de l'analyse spatiale et de la télédétection, Maxence conçoit les architectures de bases de données géographiques.</p>
+                    <div class="tags">
+                        <span class="tag">Géométrie complexe</span>
+                        <span class="tag">Télédétection</span>
+                        <span class="tag">Dev SIG</span>
+                        <span class="tag">Gestion BDD</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loïc Faullimmel -->
+            <div class="team-member">
+                <div class="member-photo">📷</div>
+                <div class="member-info">
+                    <h3>Loïc Faullimmel</h3>
+                    <div class="member-role">Ingénieur Informatique & IOT</div>
+                    <p class="member-desc">Architecte logiciel, Loïc apporte son expertise en développement web et objets connectés pour innover sur nos solutions.</p>
+                    <div class="tags">
+                        <span class="tag">Dev Web</span>
+                        <span class="tag">Serveurs & BDD</span>
+                        <span class="tag">Spécialiste IOT</span>
+                        <span class="tag">Architecture IT</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Dromatique. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>

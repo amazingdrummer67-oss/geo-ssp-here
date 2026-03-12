@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Développements | Dromatique</title>
+    <style>
+        :root {
+            --primary: #1e3a8a; 
+            --secondary: #2563eb; 
+            --light: #f3f4f6;
+            --text: #1f2937;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { color: var(--text); background-color: #f9f9f9; }
+
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo img { height: 40px; }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--secondary); }
+        .btn-contact { background: var(--secondary); color: white !important; padding: 10px 20px; border-radius: 50px; font-weight: bold; }
+
+        header { background: var(--primary); color: white; padding: 80px 5%; text-align: center; }
+        header h1 { font-size: 3rem; margin-bottom: 15px; }
+        
+        /* Content Section */
+        .content-section { padding: 60px 10%; max-width: 1200px; margin: 0 auto; }
+        
+        .feature-box { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 40px; border-left: 5px solid var(--secondary);}
+        .feature-box h2 { color: var(--primary); margin-bottom: 20px; font-size: 2rem;}
+        .feature-box p { color: #555; margin-bottom: 15px; font-size: 1.1rem; line-height: 1.8;}
+        
+        .list-items { list-style: none; margin-top: 20px;}
+        .list-items li { margin-bottom: 15px; padding-left: 30px; position: relative; font-size: 1.1rem;}
+        .list-items li::before { content: '🚀'; position: absolute; left: 0; top: 0; }
+
+        footer { background: var(--primary); color: white; text-align: center; padding: 40px 20px; margin-top: 50px;}
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="images/Logo-Dromatique.png" alt="Logo Dromatique">
+            Dromatique
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="equipe.html">L'Équipe</a>
+            <a href="plugins.html" class="active">Nos Développements</a>
+            <a href="drone.html">Prestations Drone</a>
+            <a href="geo-ssp-here.html">Geo-SSP-hère</a>
+            <a href="index.html#contact" class="btn-contact">Contactez-nous</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Développement SIG Sur-Mesure</h1>
+        <p>Vos besoins sont uniques, nos outils aussi.</p>
+    </header>
+
+    <section class="content-section">
+        <div class="feature-box">
+            <h2>Création de Plugins selon VOS besoins</h2>
+            <p>Chez Dromatique, nous savons que les logiciels standards ne répondent pas toujours aux contraintes spécifiques de votre métier. C'est pourquoi nous proposons le développement d'outils géomatiques 100% sur-mesure.</p>
+            <p>Notre équipe (composée de géologues, d'experts SIG et d'ingénieurs en développement) est capable de comprendre votre workflow technique et de le traduire en une interface simple et puissante dans QGIS ou via une application Web.</p>
+            
+            <ul class="list-items">
+                <li><strong>Automatisation des tâches répétitives :</strong> Traitement de dizaines de fichiers simultanément, génération de rapports en un clic.</li>
+                <li><strong>Systèmes métiers complexes :</strong> Formulaires conditionnels, vérification de conformité, calculs statistiques et spatiaux avancés.</li>
+                <li><strong>Interface utilisateur optimisée :</strong> Un outil pensé pour les utilisateurs non-experts en SIG, afin de faciliter l'adoption interne.</li>
+                <li><strong>Interopérabilité IOT & BDD :</strong> Connexion directe à vos serveurs en temps réel (stations météo, capteurs de terrain, bases de données).</li>
+            </ul>
+        </div>
+
+        <div class="feature-box" style="border-left-color: #d35400;">
+            <h2 style="color: #d35400;">Géo-SSP-Hère : Notre produit phare</h2>
+            <p>Conçu pour le domaine des Sites et Sols Pollués, ce plugin permet la création de modèles 3D géologiques et de pollution, la génération de tableaux réglementaires et l'utilisation d'IA locale pour l'analyse des données de terrain.</p>
+            <a href="geo-ssp-here.html" style="display: inline-block; background: #d35400; color: white; text-decoration: none; padding: 12px 25px; border-radius: 30px; font-weight: bold; margin-top: 15px;">Découvrir la solution Géo-SSP-Hère</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Dromatique. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
