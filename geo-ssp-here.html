@@ -592,17 +592,68 @@
                 grid-template-columns: 1fr; /* 1 colonne */
             }
 
+            /* Boutons d'en-tête (Installer / En savoir plus) */
+            header div[style*="display: flex"] {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            header div[style*="display: flex"] a {
+                width: 100%;
+                text-align: center;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                box-sizing: border-box;
+            }
+
+            /* Section IA */
             .ai-section {
-                padding: 60px 5%;
+                padding: 50px 5%;
                 gap: 30px;
+                text-align: center;
+                flex-direction: column;
+            }
+
+            .ai-content {
+                min-width: 100%;
+            }
+
+            .ai-content h2 {
+                font-size: 2rem !important;
             }
 
             .ai-visual {
                 font-size: 5rem;
+                width: 100%;
             }
             
             .demo-section, .tuto-section, .feedback-section {
                 padding: 50px 5%;
+            }
+
+            /* Carrousel */
+            .demo-container {
+                height: 300px;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+
+            /* Tutoriels et Formulaires */
+            .tuto-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 20px 15px;
+            }
+            
+            .btn-download {
+                text-align: center;
+                display: block;
             }
         }
     </style>
