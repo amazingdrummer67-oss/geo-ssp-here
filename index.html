@@ -231,6 +231,55 @@
             font-weight: bold;
             margin-bottom: 20px;
         }
+
+        /* ----- MEDIA QUERIES (Pour téléphones et tablettes) ----- */
+        /* La règle @media agit comme une condition (SI l'écran fait moins de 768px ALORS applique ces styles) */
+        @media screen and (max-width: 768px) {
+
+            /* 1. Navigation : On passe en colonne ("empilé") au lieu de ligne */
+            nav {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                /* Permet aux liens de passer à la ligne si pas de place */
+                justify-content: center;
+                margin-top: 15px;
+            }
+
+            /* 2. Header (L'en-tête bleu) : Réduction des marges internes (padding) et de la taille du texte */
+            header {
+                padding: 60px 5% 100px;
+                /* On réduit l'espace en haut et en bas */
+                clip-path: polygon(0 0, 100% 0, 100% 98%, 0 100%);
+                /* On adoucit la pente diagonale */
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                /* Beaucoup plus petit que les 3.5rem sur PC */
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            /* 3. Services : La grille des cartes remonte moins haut pour ne pas écraser le texte */
+            .services {
+                margin-top: -40px;
+                padding: 30px 5%;
+                grid-template-columns: 1fr;
+                /* Une seule colonne sur mobile */
+            }
+
+            /* 4. Section Produit : On centre tout et on adapte l'espace */
+            .product-section {
+                padding: 50px 5%;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 
