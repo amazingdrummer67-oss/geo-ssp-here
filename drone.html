@@ -49,6 +49,36 @@
         .intro-text { text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto 50px; line-height: 1.6;}
 
         footer { background: var(--primary); color: white; text-align: center; padding: 40px 20px; margin-top: 50px;}
+
+        /* ----- MEDIA QUERIES (Pour téléphones et tablettes) ----- */
+        /* La règle @media agit comme une condition : SI l'écran fait moins de 768px de large, on applique ces styles */
+        @media screen and (max-width: 768px) {
+            /* 1. Navigation : On passe en colonne ("empilé") au lieu de ligne */
+            nav {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap; /* Permet aux liens de passer à la ligne si pas de place */
+                justify-content: center;
+                margin-top: 15px;
+            }
+
+            /* 2. Header : Réduction des marges internes (padding) et de la taille du titre */
+            header {
+                padding: 50px 5%; /* On réduit l'espace en haut et en bas */
+            }
+
+            header h1 {
+                font-size: 2.2rem; /* Beaucoup plus petit que les 3rem sur PC */
+            }
+            
+            /* 3. Section Contenu : réduction de l'espacement sur les côtés */
+            .content-section, .team-section {
+                padding: 40px 5%;
+            }
+        }
     </style>
 </head>
 <body>
